@@ -12,6 +12,7 @@ gem 'activerecord'
 gem 'bcrypt-ruby'
 gem 'sidekiq'
 gem 'redis'
+gem 'byebug'
 
 gem 'rake'
 

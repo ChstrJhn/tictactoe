@@ -1,0 +1,18 @@
+<h1>Tic Tac Toe Bitches!</h1>
+<button id="new_game_btn" type="button"><a href="/signup">New Game</a></button>
+<button id="join_game_btn" type="button"><a href="/random">Join A Random Game</a></button>
+<div id="signup"></div>
+<p><strong>Challenge any of the players below:</strong></p>
+<%unless @waiting_players.nil? %>
+  <ol>
+    <%@waiting_players.each do |player|%>
+      <%player.games.each do |game|%>
+        <%if game.player_2.nil?%>
+          <li><%=player.name%><button type="button" id="join_btn"><a href="/challenge/<%=game.id%>">Challenge</button><div id="join"></div></li>
+        </ol>
+      <%end%>
+    <%end%>
+  <%end%>
+<%else%>
+  <p>There are no waiting players at the moment..</p>
+<%end%>

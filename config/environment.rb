@@ -13,6 +13,8 @@ require 'pathname'
 require 'sidekiq'
 require 'sidekiq/api'
 require 'redis'
+require 'matrix'
+require 'byebug'
 
 require 'pg'
 require 'active_record'

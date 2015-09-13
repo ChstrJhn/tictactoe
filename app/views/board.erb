@@ -1,24 +1,30 @@
+<p>Player One "X" : <%=@player_one.name%></p>
+<% if @game.player_2.nil? %>
+<p>Let's wait for a challenger...</p>
+<%else%>
+<p>Player Two "O": <%=@player_two.name%></p>
+<%end%>
 
     <div>
       <h1>Tic Tac Toe</h1>
-      <h1><%= @end_of_game_message %></h1>
+      <div id="message"></div>
+      <h1></h1>
       <form action="/play_game" method="POST">
         <table id="tictac">
           <tbody>
-            <% @board.rows.each do |row| %>
             <tr>
-              <% row.each_with_index do |square, index|%>
+              <% @board.each_with_index do |square, index|%>
                 <td id=<%="cell#{index}"%>>
                   <form action="/play_game" method="POST">
                     <input type="submit" name="square" value=<%="#{square}"%>>
                 </td>
               <% end %>
             </tr>
-          <% end %>
           </tbody>
         </table>
       </form>
     </div>
-    <form action="/config" method="GET">
+    <form action="/reset_board" method="GET">
       <input type="submit" name="reset" value="reset">
     </form>
+
